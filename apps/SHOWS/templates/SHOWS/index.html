@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Read All</title>
+      <meta charset="UTF-8">
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'SHOWS/css/style.css' %}"> 
+   </head>
+
+   <body>
+    <div class="container">
+         <div class="header">
+               <h3>Way better than Books</h3>
+               <button formaction="/">←</button>
+               <button formaction="/ducks">→</button>
+               <button>x</button>
+               <button>ƒ</button>
+               <input type="text" placeholder="httlp://localhost:5000/play">
+               <input type="text" placeholder="♀" >
+           </div><!--header-->
+           <div class="chassis">
+            <table class="TVguide">
+               <thead>
+                  <tr><h3>All Shows</h3></tr>
+                  <tr>
+                     <td>ID</td>
+                     <td>Title</td>
+                     <td>Network</td>
+                     <td>Release Date</td>
+                     <td>Action</td>
+                  </tr>
+               </thead>               
+               <tbody>
+                  {% for show in Shows %}
+                  <tr>
+                     <td>{{show.id}}</td><td>{{show.title}}</td>
+                     <td>{{show.network}}</td>
+                     <td>{{show.release_date}}</td>
+                     <td> 
+                        <a href="/shows/details/{{show.id}}">Show</a> 
+                        <a href="/shows/details/{{show.id}}/edit">Edit</a> 
+                        <a href="/shows/details/{{show.id}}/delete">Delete</a> 
+                     </td>
+                  </tr>
+                  {% endfor %}
+               </tbody>
+            </table>
+            <h3><a href="/shows/new">Add a show</a></h3>
+            
+           </div><!--chassis-->
+           <h4 id="bottomBar" >//</h4>     
+    </div><!--container-->
+
+   </body>
+</html>

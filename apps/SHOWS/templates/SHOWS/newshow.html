@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Create</title>
+      <meta charset="UTF-8">
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'SHOWS/css/style.css' %}"> 
+   </head>
+
+   <body>
+    <div class="container">
+         <div class="header">
+               <h3>Way better than Books</h3>
+               <button formaction="/">←</button>
+               <button formaction="/ducks">→</button>
+               <button>x</button>
+               <button>ƒ</button>
+               <input type="text" placeholder="httlp://localhost:5000/play">
+               <input type="text" placeholder="♀" >
+           </div><!--header-->
+           <div class="chassis">
+               
+              <form action="/shows/new/process" class="notBoring" method="POST">
+                  {% csrf_token %}
+               <h4>What you wanna add yo!?</h4>
+               Title: <input type="text" name="title">
+               Network: <input type="text" name="network">
+               Release Date: <input type="date" name="release">
+               Description: <textarea name="description" id="" cols="30" rows="10"></textarea>
+               <input type="submit" value="Create">
+              </form>
+              {% if messages %}
+              <ul class="messages">
+                 {% for message in messages %}
+                 <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                 {% endfor %}
+              </ul>
+               {% endif %}
+
+            <a href="/shows">Go Back</a>
+           </div><!--chassis-->
+
+           <h4 id="bottomBar" >//</h4>     
+    </div><!--container-->
+
+   </body>
+</html>

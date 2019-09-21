@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Read(One)</title>
+      <meta charset="UTF-8">
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'SHOWS/css/style.css' %}"> 
+   </head>
+
+   <body>
+    <div class="container">
+         <div class="header">
+               <h3>Way better than Books</h3>
+               <button formaction="/">←</button>
+               <button formaction="/ducks">→</button>
+               <button>x</button>
+               <button>ƒ</button>
+               <input type="text" placeholder="httlp://localhost:5000/play">
+               <input type="text" placeholder="♀" >
+           </div><!--header-->
+           <div class="chassis">
+               
+              
+               <table class="Flashy">
+                   <thead>
+                      <tr>
+                        <th>TV Show {{thisShow.id}}</th> 
+                      </tr>  
+                   </thead>
+                   <tbody>
+                      <tr>
+                        <td> Title: {{thisShow.title}} </td>
+                      </tr>
+                      <tr>
+                        <td> Network: {{thisShow.network}} </td>
+                      </tr>
+                      <tr>
+                        <td> Release Date: {{thisShow.release_date}} </td>
+                      </tr>
+                      <tr>
+                        <td> Description: {{thisShow.description}} </td>
+                      </tr>
+                  </tbody>
+                  <tfoot>
+                     <tr>
+                        <td>    
+                        </td>
+                     </tr>
+                  </tfoot>
+               </table>
+              
+            <h5>Last Updated:{{thisShow.updated_at}}</h5>
+            <a href="/shows/details/{{thisShow.id}}/edit">Edit</a>
+            <a href="/shows/details/{{thisShow.id}}/delete">Delete</a>
+            <a href="/shows">Go Back To Begin</a>
+           </div><!--chassis-->
+           <h4 id="bottomBar" >//</h4>     
+    </div><!--container-->
+
+   </body>
+</html>
